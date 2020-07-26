@@ -1,14 +1,18 @@
 package usecase
 
-import "go-clean-architecture/src/domain"
+import "go-clean-architecture/domain"
 
 type UserInteractor struct {
 	UserRepository UserRepository
 }
 
-func (interactor *UserInteractor) Add(u domain.User) error {
-	_, err := interactor.UserRepository.Store(u)
-	return err
+func (interactor *UserInteractor) Add(u domain.User) (user domain.User, err error) {
+	identifier, err := interactor.UserRepository.Store(u)
+	if err != nil {
+		return
+	}
+	user, err = interactor.UserRepository.FindById(identifier)
+	return
 }
 
 func (interactor *UserInteractor) Users() (user domain.Users, err error) {

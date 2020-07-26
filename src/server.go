@@ -1,16 +1,7 @@
 package main
 
-import (
-	"net/http"
-
-	"github.com/labstack/echo/v4"
-)
+import "go-clean-architecture/infrastructure"
 
 func main() {
-	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, map[string]string{"hello": "world"})
-	})
-
-	e.Logger.Fatal(e.Start(":1313"))
+	infrastructure.Run()
 }

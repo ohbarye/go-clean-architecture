@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"go-clean-architecture/src/interfaces/database"
+	"go-clean-architecture/interfaces/database"
 )
 
 type SqlHandler struct {

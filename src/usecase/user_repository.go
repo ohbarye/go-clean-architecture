@@ -1,6 +1,6 @@
 package usecase
 
-import "go-clean-architecture/src/domain"
+import "go-clean-architecture/domain"
 
 type UserRepository interface {
 	Store(domain.User) (int, error)
