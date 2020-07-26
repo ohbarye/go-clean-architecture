@@ -19,7 +19,7 @@ services:
       - ./src:/go/src
     working_dir: /go/src
     ports:
-      - "8080:8080"
+      - "1313:1313"
     depends_on:
       - db
 
