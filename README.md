@@ -1,5 +1,21 @@
 # Go Clean Architecture
 
+This is an example application to implement an API server with Clean Architecture.
+
+## Architecture
+
+All dependencies are unidirectional by using DIP.
+
+For example, unless the `SqlHandler` interface doesn't exist, `UserRepository` directly depends on `SqlHandler` across database layer and infrastructure layer. The same goes on `UserRepository` and `UserInteractor`. 
+
+![image](https://user-images.githubusercontent.com/1811616/88475987-ada7db80-cf6f-11ea-82b5-efd0b46d5423.png)
+
+## Stacks
+
+- MySQL 8.0
+- Go 1.14
+  - Echo
+
 ## Development
 
 ```shell
@@ -45,3 +61,7 @@ Content-Length: 53
 $ mysql -u root -h localhost -P 3306 --protocol=tcp
 ```
 
+## Original Idea
+
+- https://github.com/hirotakan/go-cleanarchitecture-sample
+  - https://qiita.com/hirotakan/items/698c1f5773a3cca6193e
