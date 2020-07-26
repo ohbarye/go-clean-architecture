@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/labstack/echo/v4"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	e := echo.New()
+	e.GET("/", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, map[string]string{"hello": "world"})
+	})
+
+	e.Logger.Fatal(e.Start(":1313"))
 }
